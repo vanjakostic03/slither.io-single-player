@@ -2,8 +2,8 @@ class Bubble{
     constructor(x,y, value = 1){
         this.x = x;
         this.y = y;
-        this.value = getRandomIntInclusive(1,5);
-        this.radius = this.value*2.5;
+        this.value = getRandomIntInclusive(1,5,2);
+        this.radius = this.value*2;
     }
 
     isColliding(snake) {

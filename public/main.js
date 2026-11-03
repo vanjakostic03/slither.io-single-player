@@ -18,7 +18,7 @@ canvas.height = window.innerHeight;
 const ctx = canvas.getContext("2d");
 const snake = new Snake(canvas.width/2,canvas.height/2);
 let bubbles = new Set();
-for (let i  = 0; i<80; i++){
+for (let i  = 0; i<100; i++){
     let [bubbleX, bubbleY] = generateBubble();
 
     bubbles.add(new Bubble(bubbleX, bubbleY));

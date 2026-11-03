@@ -1,7 +1,9 @@
-function getRandomIntInclusive(min, max) {
+function getRandomIntInclusive(min, max, power = 1) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  return Math.floor(
+        min + (max - min + 1) * Math.pow(Math.random(), power)
+    );
 }
 
 function isTooCloseToSnake(x,y, threshold) {                   
