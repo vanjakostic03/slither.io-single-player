@@ -11,19 +11,20 @@ class Snake{
     }
 
 
-    updatePosition(){
+    updatePosition(a,b){
+        this.controls.changeState(a,b);
 
         if(this.controls.up){
-            this.y-=2;
+            this.y-=10;
         }
         if(this.controls.down){
-            this.y+=2;
+            this.y+=10;
         }
         if(this.controls.left){
-            this.x-=2;
+            this.x-=10;
         }
         if(this.controls.right){
-            this.x+=2;
+            this.x+=10;
         }
     }
 

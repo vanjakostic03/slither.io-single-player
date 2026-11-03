@@ -5,9 +5,17 @@ class Controls{
         this.right = false;
         this.left = false;
 
-        this.#addKeyBoardListeners();
+        //this.#addKeyBoardListeners();
+        this.changeState();
     }
 
+    changeState(x,y){
+        const threshold = 200;
+        this.left = x > 509 - threshold;
+        this.right = x < 509 + threshold;
+        this.up = y < 504 - threshold;
+        this.down = y > 504 + threshold;
+    }
 
     #addKeyBoardListeners(){               //arrow function bcs this refers on attributes
         document.onkeydown=(event)=>{       //on button press

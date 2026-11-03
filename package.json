@@ -3,7 +3,8 @@
     "@serialport/parser-readline": "^13.0.0",
     "arduino-iot-js": "^0.9.8",
     "express": "^5.3.0",
-    "serialport": "^13.0.0"
+    "serialport": "^13.0.0",
+    "ws": "^8.22.1"
   },
   "name": "slither.io-single-player",
   "version": "1.0.0",

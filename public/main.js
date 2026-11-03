@@ -1,3 +1,15 @@
+const socket = new WebSocket('ws://localhost:3000');
+
+socket.onopen = () => {
+    console.log('Connected to Node.js');
+};
+
+socket.onmessage = (event) => {
+    console.log(event.data);
+    const [a,b] = event.data.split(',').map(Number);
+    snake.updatePosition(a,b);
+};
+
 const canvas=document.getElementById("myCanvas");
 
 canvas.width = window.innerWidth;
@@ -10,7 +22,7 @@ animate();
 
 function animate(){
 
-    snake.updatePosition();
+    // snake.updatePosition();
     canvas.height = window.innerHeight;
     snake.draw(ctx);
     requestAnimationFrame(animate);
