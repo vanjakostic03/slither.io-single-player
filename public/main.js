@@ -23,7 +23,8 @@ for (let i  = 0; i<100; i++){
 
     bubbles.add(new Bubble(bubbleX, bubbleY));
 }
-console.log(bubbles);
+
+let score = 0;
 
 let lastTime = 0;
 
@@ -65,12 +66,13 @@ function generateBubble(){
 function checkCollisions() {
     bubbles.forEach(bubble => {
         if (bubble.isColliding(snake)) {
-            console.log("UPAO");
+            score+=bubble.value;
+            snake.grow(bubble.value);
             bubbles.delete(bubble);
             let [bubbleX, bubbleY] = generateBubble();
 
             bubbles.add(new Bubble(bubbleX, bubbleY));
-            // snake.grow();
+            
         }
     });
 }

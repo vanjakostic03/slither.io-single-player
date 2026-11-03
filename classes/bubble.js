@@ -16,6 +16,7 @@ class Bubble{
 
         return distanceSquared <= radiusSum * radiusSum;
     };
+    
 
 
     draw(ctx){
