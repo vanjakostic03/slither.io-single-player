@@ -50,7 +50,8 @@ class Snake{
         ctx.save();
         ctx.beginPath();
 
-        ctx.arc(this.x, this.y, 10, 0, 2*Math.PI);
+        ctx.arc(this.x, this.y, 15, 0, 2*Math.PI);
+        ctx.fillStyle = '#7afc00';   
         ctx.fill();
 
     }

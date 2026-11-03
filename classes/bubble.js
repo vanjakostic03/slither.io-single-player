@@ -1,0 +1,21 @@
+class Bubble{
+    constructor(x,y, value = 1){
+        this.x = x;
+        this.y = y;
+        this.value = getRandomIntInclusive(1,5);
+    }
+
+
+    draw(ctx){
+        ctx.save();
+        ctx.beginPath();
+
+        ctx.arc(this.x, this.y, this.value*2.5, 0, 2*Math.PI);
+        ctx.fillStyle = '#ff1149';  
+        ctx.strokeStyle = '#000000'; 
+        ctx.lineWidth = 5; 
+        ctx.stroke();
+        ctx.fill();
+
+    }
+}
