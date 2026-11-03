@@ -18,18 +18,12 @@ canvas.height = window.innerHeight;
 const ctx = canvas.getContext("2d");
 const snake = new Snake(canvas.width/2,canvas.height/2);
 let bubbles = new Set();
-for (let i  = 0; i<40; i++){
-    let bubbleX;
-    let bubbleY;
-
-    do {
-        bubbleX = getRandomIntInclusive(canvas.width * 0.1, canvas.width * 0.9);
-        bubbleY = getRandomIntInclusive(canvas.height * 0.1, canvas.height * 0.9);
-
-    } while (isTooCloseToSnake(bubbleX, bubbleY, 40));
+for (let i  = 0; i<80; i++){
+    let [bubbleX, bubbleY] = generateBubble();
 
     bubbles.add(new Bubble(bubbleX, bubbleY));
 }
+console.log(bubbles);
 
 let lastTime = 0;
 
@@ -40,11 +34,44 @@ function animate(time){
     const deltaTime = (lastTime-time) / 1000;
     lastTime = time;
 
+    
+
     snake.updatePosition(deltaTime);
+    checkCollisions();
     canvas.height = window.innerHeight;
-    snake.draw(ctx);
     bubbles.forEach(bubble => {
         bubble.draw(ctx);
     });
+    snake.draw(ctx);
+
+    
+    
     requestAnimationFrame(animate);
 }
+
+function generateBubble(){
+    let bubbleX;
+    let bubbleY;
+
+    do {
+        bubbleX = getRandomIntInclusive(canvas.width * 0.05, canvas.width * 0.95);
+        bubbleY = getRandomIntInclusive(canvas.height * 0.05, canvas.height * 0.95);
+
+    } while (isTooCloseToSnake(bubbleX, bubbleY, 40));
+
+    return [bubbleX,bubbleY];
+}
+
+function checkCollisions() {
+    bubbles.forEach(bubble => {
+        if (bubble.isColliding(snake)) {
+            console.log("UPAO");
+            bubbles.delete(bubble);
+            let [bubbleX, bubbleY] = generateBubble();
+
+            bubbles.add(new Bubble(bubbleX, bubbleY));
+            // snake.grow();
+        }
+    });
+}
+

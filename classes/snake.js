@@ -3,6 +3,7 @@ class Snake{
         this.x = x;
         this.y = y;
         this.tailLength = tailLength;
+        this.radius = 15;
 
         this.isMoving = false;         //initially rests, on controlls changes
         this.speed = 180;               //pixels per second 
@@ -23,16 +24,16 @@ class Snake{
         // const distance = this.speed * deltaTime;
 
         if(this.controls.up){
-            dy-=1;
-        }
-        if(this.controls.down){
             dy+=1;
         }
+        if(this.controls.down){
+            dy-=1;
+        }
         if(this.controls.left){
-            dx-=1;
+            dx+=1;
         }
         if(this.controls.right){
-            dx+=1;
+            dx-=1;
         }
 
         const distance = Math.sqrt(dx*dx + dy*dy);
@@ -50,7 +51,7 @@ class Snake{
         ctx.save();
         ctx.beginPath();
 
-        ctx.arc(this.x, this.y, 15, 0, 2*Math.PI);
+        ctx.arc(this.x, this.y, this.radius, 0, 2*Math.PI);
         ctx.fillStyle = '#7afc00';   
         ctx.fill();
 

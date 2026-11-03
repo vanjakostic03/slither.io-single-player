@@ -7,8 +7,8 @@ class Controls{
         this.right = false;
         this.left = false;
 
-        //this.#addKeyBoardListeners();
-        this.changeState();
+        this.#addKeyBoardListeners();
+        //this.changeState();
     }
 
     changeState(x,y){
