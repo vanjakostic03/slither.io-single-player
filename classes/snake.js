@@ -5,27 +5,45 @@ class Snake{
         this.tailLength = tailLength;
 
         this.isMoving = false;         //initially rests, on controlls changes
-        
+        this.speed = 180;               //pixels per second 
         this.controls = new Controls();
 
     }
 
 
-    updatePosition(a,b){
+    updateDirection(a,b){
         this.controls.changeState(a,b);
+    }
+    
+    updatePosition( deltaTime){
+        
+        let dx = 0;     //movement directions
+        let dy = 0;
+
+        // const distance = this.speed * deltaTime;
 
         if(this.controls.up){
-            this.y-=10;
+            dy-=1;
         }
         if(this.controls.down){
-            this.y+=10;
+            dy+=1;
         }
         if(this.controls.left){
-            this.x-=10;
+            dx-=1;
         }
         if(this.controls.right){
-            this.x+=10;
+            dx+=1;
         }
+
+        const distance = Math.sqrt(dx*dx + dy*dy);
+        if (distance > 0){
+            dx /= distance;
+            dy /= distance;
+        }
+
+        this.x += dx * this.speed * deltaTime;
+        this.y += dy * this.speed * deltaTime;
+
     }
 
     draw(ctx){

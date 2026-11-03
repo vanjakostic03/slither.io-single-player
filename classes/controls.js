@@ -1,5 +1,7 @@
 class Controls{
     constructor(){
+
+        //this allows only 8 possible directions - for smoother movement implement physics using continuous vectors
         this.up = false;
         this.down = false;
         this.right = false;
