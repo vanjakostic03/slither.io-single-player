@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "@serialport/parser-readline": "^13.0.0",
+    "arduino-iot-js": "^0.9.8",
+    "express": "^5.3.0",
+    "serialport": "^13.0.0"
+  },
+  "name": "slither.io-single-player",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanjakostic03/slither.io-single-player.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/vanjakostic03/slither.io-single-player/issues"
+  },
+  "homepage": "https://github.com/vanjakostic03/slither.io-single-player#readme"
+}
